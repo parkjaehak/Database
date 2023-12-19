@@ -21,6 +21,7 @@ import java.sql.SQLException;
 
 import static hello.jdbc.connection.ConnectionConst.*;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
  * transaction - DataSource, transactionManager 자동 등록
@@ -40,6 +41,7 @@ class MemberServiceV3_4Test {
 
     @TestConfiguration
     static class TestConfig{
+
         private final DataSource dataSource;
 
         public TestConfig(DataSource dataSource) {
@@ -102,7 +104,7 @@ class MemberServiceV3_4Test {
         memberRepository.save(memberEx);
 
         //when (이를 수행하면)
-        assertThatThrownBy(() -> memberService.accou    ntTransfer(memberA.getMemberId(), memberEx.getMemberId(), 2000))
+        assertThatThrownBy(() -> memberService.accountTransfer(memberA.getMemberId(), memberEx.getMemberId(), 2000))
                 .isInstanceOf(IllegalStateException.class);
 
         //then (이렇게 되어야 함)

@@ -105,7 +105,7 @@ class MemberServiceV3_3Test {
         memberRepository.save(memberEx);
 
         //when (이를 수행하면)
-        assertThatThrownBy(() -> memberService.accou    ntTransfer(memberA.getMemberId(), memberEx.getMemberId(), 2000))
+        assertThatThrownBy(() -> memberService.accountTransfer(memberA.getMemberId(), memberEx.getMemberId(), 2000))
                 .isInstanceOf(IllegalStateException.class);
 
         //then (이렇게 되어야 함)
