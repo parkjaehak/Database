@@ -1,6 +1,7 @@
 package hello.jdbc.service;
 
 import hello.jdbc.domain.Member;
+import hello.jdbc.repository.MemberRepositoryV2;
 import hello.jdbc.repository.MemberRepositoryV3;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +22,7 @@ import java.sql.SQLException;
 public class MemberServiceV3_1 {
 
     private final PlatformTransactionManager transactionManager2;
-    private final MemberRepositoryV3 memberRepository;
+    private final MemberRepositoryV2 memberRepository;
 
     public void accountTransfer(String fromId, String toId, int money){
         // transaction start
