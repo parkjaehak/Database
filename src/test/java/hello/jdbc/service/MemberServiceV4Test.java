@@ -38,14 +38,14 @@ class MemberServiceV4Test {
     @Autowired
     private MemberServiceV4 memberService;
 
-    @TestConfiguration
-    static class TestConfig{
+        @TestConfiguration
+        static class TestConfig{
 
-        private final DataSource dataSource;
+            private final DataSource dataSource;
 
-        public TestConfig(DataSource dataSource) {
-            this.dataSource = dataSource;
-        }
+            public TestConfig(DataSource dataSource) {
+                this.dataSource = dataSource;
+            }
 
         @Bean
         MemberRepository memberRepository() {
