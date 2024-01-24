@@ -20,19 +20,19 @@ import java.sql.SQLException;
 @RequiredArgsConstructor
 public class MemberServiceV3_1 {
 
-    private final PlatformTransactionManager transactionManager;
+    private final PlatformTransactionManager transactionManager2;
     private final MemberRepositoryV3 memberRepository;
 
     public void accountTransfer(String fromId, String toId, int money){
         // transaction start
-        TransactionStatus status = transactionManager.getTransaction(new DefaultTransactionDefinition());
+        TransactionStatus status = transactionManager2.getTransaction(new DefaultTransactionDefinition());
 
         try {
             bizLogic(fromId, toId, money); // business logic
-            transactionManager.commit(status); // 성공시 commit
+            transactionManager2.commit(status); // 성공시 commit
 
         } catch (Exception e) {
-            transactionManager.rollback(status); // 실패시 rollback
+            transactionManager2.rollback(status); // 실패시 rollback
             throw new IllegalStateException(e);
         }
     }
